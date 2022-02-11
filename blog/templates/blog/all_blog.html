@@ -1,0 +1,18 @@
+{% extends 'portfolio/base.html' %} 
+{% block content %} 
+      This is our blog home page
+
+      <h2> Author has written {{blogs.count}} blog{{blogs.count|pluralize}}</h2>
+
+      {% for blog in blogs %}
+
+         <a href="{% url 'blog:detail' blog.id %}"> <h2> {{blog.title}}</h2> </a>
+         <h4> {{blog.date|date:'d, M, Y'}}</h4>
+         <p> {{blog.description|truncatechars:100}}<p>
+         <img src="{{ blog.image.url }}" width="200" height="300">
+         <br>
+         {% if blog.url %}
+            <a href ="{{blog.url}}"> Link </a>
+         {% endif %}
+      {% endfor %}
+{% endblock %}
