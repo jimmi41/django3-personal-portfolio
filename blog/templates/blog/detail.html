@@ -1,6 +1,27 @@
-{% extends 'portfolio/base.html' %} 
+{% extends 'portfolio/base.html' %}
+{% load static %}
+ 
+{% block content %}
+
+   <h3 class="text-center mt-5" id="blogdetailtitle">{{ blog.title }}</h3>
+   <h5 class="text-center text-muted mb-5">{{ blog.date|date:'F jS Y' }}</h5>
+   <img src="{{ blog.image.url }}" class="blogImg">
+      {{ blog.description|safe }}
+      <br>
+      {% if blog.url %}
+                  <a href ="{{blog.url}}" target="_blank"> 
+                     <button type="button" class="btn btn-info">Click here</button> 
+                  </a>
+      {% endif %} 
+
+{% endblock %}
+
+
+
+
+{% comment %} 
 {% block content %}   
-   This is our individual blog page.
+   
 
     <h2> {{blog.title}}</h2>
     <h4> --{{blog.date|date:'d, M, Y'}}--</h4>
@@ -10,4 +31,4 @@
      {% if blog.url %}
         <a href ="{{blog.url}}"> Link </a>
      {% endif %}
-{% endblock %}
+{% endblock %} {% endcomment %}

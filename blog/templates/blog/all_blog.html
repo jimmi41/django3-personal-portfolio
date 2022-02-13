@@ -1,10 +1,30 @@
 {% extends 'portfolio/base.html' %} 
-{% block content %} 
-      This is our blog home page
+{% load static %}
 
-      <h2> Author has written {{blogs.count}} blog{{blogs.count|pluralize}}</h2>
+{% block content %}
+
+<h4 id="blogtitle" class="text-center">Blogs</h4>
+
+      <h3 class="text-center mb-5">Anupam has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h3>
 
       {% for blog in blogs %}
+<div class="row justify-content-center my-3">
+  <div class="col-md-10">
+    
+    <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+    <h5 class="text-muted">{{ blog.date|date:'M d Y'|upper }}</h5>
+    <img src="{{ blog.image.url }}" width="200" height="300">
+    <h4>{{ blog.description|striptags|truncatechars:100 }}</h4>
+     
+   </div>
+</div>
+{% endfor %}
+
+{% endblock %}
+
+
+{% comment %} my code so commented {% endcomment %}
+      {% comment %} {% for blog in blogs %}
 
          <a href="{% url 'blog:detail' blog.id %}"> <h2> {{blog.title}}</h2> </a>
          <h4> {{blog.date|date:'d, M, Y'}}</h4>
@@ -15,4 +35,4 @@
             <a href ="{{blog.url}}"> Link </a>
          {% endif %}
       {% endfor %}
-{% endblock %}
+{% endblock %} {% endcomment %}
