@@ -8,15 +8,15 @@
       <h3 class="text-center mb-5">Anupam has written {{ blogs.count }} blog{{ blogs.count|pluralize }}</h3>
 
       {% for blog in blogs %}
-<div class="row justify-content-center my-3">
-  <div class="col-md-10">
+      <div class="row justify-content-center my-3">
+         <div class="col-md-10">
     
-    <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
-    <h5 class="text-muted">{{ blog.date|date:'M d Y'|upper }}</h5>
-    <img src="{{ blog.image.url }}" width="200" height="300">
-    <h4>{{ blog.description|striptags|truncatechars:100 }}</h4>
+         <a href="{% url 'blog:detail' blog.id %}"><h2>{{ blog.title }}</h2></a>
+         <h5 class="text-muted">{{ blog.date|date:'M d Y'|upper }}</h5>
+         <img src="{{ blog.image.url }}" width="200" height="300">
+         <h4>{{ blog.description|striptags|truncatechars:100 }}</h4>
      
-   </div>
+      </div>
 </div>
 {% endfor %}
 
