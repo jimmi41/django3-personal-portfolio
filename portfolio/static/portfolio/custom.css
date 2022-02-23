@@ -35,7 +35,11 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
+<<<<<<< HEAD
     /* width: 50%;   */
+=======
+    width: 50%;
+>>>>>>> 02121bae8782a252616a77384402fcf522257155
 }
 
 #blogtitle {
